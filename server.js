@@ -3,9 +3,11 @@ bodyParser = require("body-parser");
 path = require("path");
 
 var app = express();
-var PORT = process.env.PORT || 3030;
+var PORT = process.env.PORT || 3080;
 
 app.use(bodyParser.json());
+
+app.use(express.static(__dirname + "/app/public"));
 
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
